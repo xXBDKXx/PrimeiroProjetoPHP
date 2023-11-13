@@ -7,8 +7,15 @@
     <title>Excluir</title>
 </head>
 <body>
-    <?php include 'excluir.php';
-        echo excluir();
-    ?>
+    <form>
+        <button> Excluir 
+            <?php 
+                session_start();
+                session_destroy();
+            ?>
+        </button>
+
+        <button> <a href="index.php"> Voltar </a></button>
+    </form>
 </body>
 </html>

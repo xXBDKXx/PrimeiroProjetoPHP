@@ -7,7 +7,33 @@
     <title>Atualizar</title>
 </head>
 <body>
-    <?php include 'cadastro.php' ?>
+    <?php 
+    function atualizar($opcao, $dado)
+    {
+        switch($opcao)
+        {
+            case 1:
+                $_SESSION['nome'] = $dado;
+                return "Atualizado Nome";
+                break;
+            case 2:
+                $_SESSION['telefone'] = $dado;
+                return "Atualizado Telefone";
+                break;
+            case 3:
+                $_SESSION['endereco'] = $dado;
+                return "Atualizado Endereco";
+                break;
+            case 4:
+                $_SESSION['cidade'] = $dado;
+                return "Atualizado Cidade";
+                break;
+            default:
+                return "Opção escolhida não é válida";
+        }//Fim da Escolha
+    }//Fim do Metodo
+    ?>
+
     <form method="POST">
         <label>Escolha o Campo que deseja atualizar: </label>
         <select name="opcao" id="opcao">
@@ -23,10 +49,18 @@
         <input type="text" id="dado" name="dado"/>
 
         <button> Atualizar
-            <?php 
-                
+            <?php
+                session_start();
+                $opcao = $_POST['opcao'];
+                $dado = $_POST['dado'];
             ?>
         </button>
+
+        <?php 
+            echo atualizar($opcao, $dado);
+        ?>
+
+        <button> <a href="index.php"> Voltar </a></button>
     </form>    
 </body>
 </html>

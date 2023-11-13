@@ -33,26 +33,18 @@
 
         <button> Cadastrar 
         <?php
-
+            session_start();
             //Passe o Dado para o construtor
-            function consultarObjeto()
-            {
-                $cpf = $_POST['tCPF'];
-                $nome = $_POST['tNome'];
-                $telefone = $_POST['tTelefone'];
-                $endereco = $_POST['tEndereco'];
-                $cidade = $_POST['tCidade'];
+            $_SESSION['cpf']      = $_POST['tCPF'];
+            $_SESSION['nome']     = $_POST['tNome'];
+            $_SESSION['telefone'] = $_POST['tTelefone'];
+            $_SESSION['endereco'] = $_POST['tEndereco'];
+            $_SESSION['cidade']   = $_POST['tCidade'];
 
-                $cad = new Cadastro($cpf, $nome, $telefone, $endereco, $cidade);
-                return $cad;
-            }//Fim do Método
-
+            echo 'Dados Cadastrados!!' 
         ?>
         </button>
+        <button> <a href="index.php"> Voltar </a></button>
     </form>
-    
-    <?php
-        echo consultarObjeto()->imprimir();
-    ?>
 </body>
 </html>

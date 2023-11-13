@@ -95,37 +95,6 @@
             $this->setCidade("");
             return "Dados Excluidos!";
         }//Fim do Metodo
-        
-        public function menu()
-        {
-            $men =  "\nEscolha o que deseja atualizar:".
-                    "\n1. Nome". 
-                    "\n2. Telefone".
-                    "\n3. Endereço". 
-                    "\n4. Cidade";
-            return $men;
-        }//Fim do Metodo
-
-        public function atualizar($opcao)
-        {
-            switch($opcao)
-            {
-                case 1:
-                    $this->setNome($dado);
-                    break;
-                case 2:
-                    $this->setTelefone($dado);
-                    break;
-                case 3:
-                    $this->setEndereco($dado);
-                    break;
-                case 4:
-                    $this->setCidade($dado);
-                    break;
-                default:
-                    return "Opção escolhida não é válida";
-            }//Fim da Escolha
-        }//Fim do Metodo
 
     }//Fim da Classe
 

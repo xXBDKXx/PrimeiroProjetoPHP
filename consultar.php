@@ -8,11 +8,21 @@
 </head>
 <body>
     <?php 
-          include 'paginaCadastro.php';
-          require_once 'cadastro.php';
-        
-          $cadastroUm = consultarObjeto();
-            echo $cadastroUm->imprimir();
+          include 'cadastro.php';
+
+          session_start();
+          $cpf      = $_SESSION['cpf'];
+          $nome     = $_SESSION['nome'];
+          $telefone = $_SESSION['telefone'];
+          $endereco = $_SESSION['endereco'];
+          $cidade   = $_SESSION['cidade'];
+
+          $cad = new Cadastro($cpf, $nome, $telefone, $endereco, $cidade);
+          echo $cad->imprimir();
     ?>
+    <br><br>
+    <form method="POST">
+        <button> <a href="index.php"> Voltar </a></button>
+    </form>
 </body>
 </html>
